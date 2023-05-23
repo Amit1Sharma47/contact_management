@@ -13,7 +13,7 @@ const CreateContact = () => {
           </label>
           <input
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-5/6 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-5/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="firstName"
             required
           />
@@ -24,7 +24,7 @@ const CreateContact = () => {
           </label>
           <input
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-5/6 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-5/6 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="lastName"
             required
           />
@@ -38,15 +38,18 @@ const CreateContact = () => {
 
           <div className="w-5/6 flex flex-row  justify-evenly  ">
             <div>
-              <input type="radio" name="Active" id="Active" />
+              <input type="radio" name="status" id="Active" />
               <label htmlFor="Active">Active</label>
             </div>
             <div>
-              <input type="radio" name="Inactive" id="Inactive" />
+              <input type="radio" name="status" id="Inactive" />
               <label htmlFor="Inactive">Inactive</label>
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full flex justify-center my-5">
+        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Save Contact</button>
       </div>
     </div>
   );
