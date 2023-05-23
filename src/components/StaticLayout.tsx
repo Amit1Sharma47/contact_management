@@ -25,7 +25,7 @@ const StaticLayout = (props: any) => {
             </Link>
           </div>
         </div>
-        <div className="w-full bg-blue-gray-100  h-5/6  flex justify-center">
+        <div className="w-5/6 bg-blue-gray-100  h-5/6  flex justify-center">
           {props.children}
         </div>
       </div>

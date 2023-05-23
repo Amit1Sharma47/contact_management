@@ -10,13 +10,13 @@ const DiseaseDashboard = () => {
   const { data, isLoading } = useQuery("disease", fetchDiseaseData);
 
   return (
-    <div>
-      <div className="m-1 flex w-full flex-wrap justify-center items-center pt-5">
+    <div className="m-1 flex  h-full flex-wrap justify-center items-center pt-5 overflow-hidden">
+       
         {Object.keys(data ? data?.data : []).map(
           (key) =>
             key !== "updated" && <Cards title={key} quant={data?.data[key]} />
         )}
-      </div>
+       
     </div>
   );
 };

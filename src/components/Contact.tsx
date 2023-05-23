@@ -30,11 +30,11 @@ const Contact = () => {
       <div className="mt-3 flex justify-center w-3/4 h-auto flex-wrap overflow-y-scroll py-5">
         {contacts.length > 0 &&
           contacts.map((item, index) => (
-            <div className="w-56 h-60 m-2 text-center overflow-hidden shadow-lg bg-white rounded-md  ">
+            <div className="w-56 h-60 m-2 text-center overflow-hidden shadow-lg bg-red-100 rounded-md text-red-400 ">
               <div className="font-bold text-3xl my-2 mx-2">
                 {item.firstName + " " + item.lastName}
               </div>
-              <p className="text-gray-700 text-xs mx-2">
+              <p className="text-slate-700 text-xs mx-2">
                 {item.status ==='1' ? "ACTIVE" : "INACTIVE"}
               </p>
               <div className="mt-5">
