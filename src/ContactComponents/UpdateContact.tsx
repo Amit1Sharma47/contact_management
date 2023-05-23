@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import { addContact } from "../Redux/slice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router";
+import { useSelector } from "react-redux";
+import { RootState } from "../Redux/store";
+import { updateContact } from "../Redux/slice";
 const CreateContact = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [data, setData] = useState<any>({});
+  const { id } = useParams<string>();
+
+  const contacts = useSelector((state: RootState) => state.contact.contact);
+  const [data, setData] = useState<any>({
+    firstName: contacts[Number(id)]?.firstName,
+    lastName: contacts[Number(id)]?.lastName,
+    status: contacts[Number(id)]?.status,
+  });
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data);
   };
 
   const submitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -17,15 +27,15 @@ const CreateContact = () => {
     data.length !== 0 &&
       data.firstName !== "" &&
       data.lastName !== "" &&
-      dispatch(addContact(data));
-    setData({ firstName: "", lastName: "", status: data.status });
+      dispatch(updateContact({ data, id }));
+
     navigate("/contact");
     console.log("first");
   };
   return (
     <div className=" w-full h-96 ">
       <div className="flex justify-center  my-auto mx-auto h-16 py-5">
-        <h1>Create Contact Screen</h1>
+        <h1>Update Contact Screen</h1>
       </div>
       <div className="bg-white h-60 flex-col w-1/2 flex justify-center my-auto mx-auto ">
         <div className="w-full flex justify-between py-5 px-4">
@@ -70,6 +80,7 @@ const CreateContact = () => {
                 name="status"
                 id="Active"
                 value="1"
+                checked={data.status === "1"}
                 onChange={changeHandler}
               />
               <label htmlFor="Active">Active</label>
@@ -80,6 +91,7 @@ const CreateContact = () => {
                 name="status"
                 id="Inactive"
                 value="0"
+                checked={data.status === "0"}
                 onChange={changeHandler}
               />
               <label htmlFor="Inactive">Inactive</label>
@@ -92,7 +104,7 @@ const CreateContact = () => {
           className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           onClick={submitHandler}
         >
-          Save Contact
+          Update Contact
         </button>
       </div>
     </div>
