@@ -14,10 +14,8 @@ const CreateContact = () => {
 
   const submitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log("first");
-    data.length !== 0 &&
-      data.firstName !== "" &&
-      data.lastName !== "" &&
-      dispatch(addContact(data));
+
+    data.firstName && data.lastName && dispatch(addContact(data));
     setData({ firstName: "", lastName: "", status: data.status });
     navigate("/contact");
     console.log("first");

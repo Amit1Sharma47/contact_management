@@ -3,10 +3,15 @@ import './App.css';
 import StaticLayout from './components/StaticLayout';
 import Contact from './components/Contact';
 import ChartAndMaps from './ChartAndMaps/ChartAndMaps';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import CreateContact from './ContactComponents/CreateContact';
 import UpdateContact from './ContactComponents/UpdateContact';
+import { useEffect } from 'react';
 function App() {
+  const navigate=useNavigate();
+  useEffect(() =>{
+    navigate('ChartAndMaps')
+  },[])
   return (
      
  <StaticLayout>

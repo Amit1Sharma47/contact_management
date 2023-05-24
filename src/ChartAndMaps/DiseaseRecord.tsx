@@ -24,11 +24,11 @@ const DiseaseRecord = (props: IMyProps) => {
   let slicedArray = dataArray.slice(0, 100);
   console.log(slicedArray);
 
- const options = {
-   chart: {
-        height: 630,
-        marginTop:105,
-        backgroundColor: '#9DB2BF',
+  const options = {
+    chart: {
+      height: 450,
+      marginTop: 105,
+      backgroundColor: "transparent",
     },
     yAxis: {
       title: {
@@ -37,7 +37,7 @@ const DiseaseRecord = (props: IMyProps) => {
     },
 
     xAxis: {
-      categories: slicedArray.map((item:any)=>item.name),
+      categories: dataArray.map((item: any) => item.name),
       crosshair: true,
     },
 
@@ -75,19 +75,19 @@ const DiseaseRecord = (props: IMyProps) => {
     series: [
       {
         name: "cases",
-        data:slicedArray.map((item:any)=>item.cases),
+        data: dataArray.map((item: any) => item.cases),
         color: "rgb(56, 56, 118)",
       },
       {
         name: "deaths",
-        data: slicedArray.map((item:any)=>item.deaths),
+        data: dataArray.map((item: any) => item.deaths),
         color: "rgb(217, 65, 72)",
       },
-       {
+      {
         name: "recovered",
-        data: slicedArray.map((item:any)=>item.recovered),
+        data: dataArray.map((item: any) => item.recovered),
         color: "rgb(71, 169, 146)",
-      }
+      },
     ],
 
     responsive: {

@@ -1,59 +1,56 @@
 import React from "react";
 
 
-import Highcharts from "highcharts";
+import Highcharts, { geojson } from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
-import mapDataIN from "@highcharts/map-collection/custom/world.geo.json";
+import mapDataIN from "@highcharts/map-collection/custom/world-highres.geo.json";
 
 
 highchartsMap(Highcharts);
-interface IMyProps {
-  data: any;
-}
-export default function DiseaseWorldMap(props: IMyProps) {
-      const { data } = props;
-      console.log(data)
+
+export default function DiseaseWorldMap() {
   const mapOptions = {
     chart: {
-      map: "custom/world",
+      map: 'world',
       pinchType: "none",
       zoomType: "none",
+      backgroundColor: "transparent",
       width:
         document.body.offsetWidth > 1040
           ? 880
           : document.body.offsetWidth > 950
-          ? 380
-          : document.body.offsetWidth > 900
-          ? 330
-          : document.body.offsetWidth > 600
-          ? 500
-          : document.body.offsetWidth > 516
-          ? 480
-          : document.body.offsetWidth > 440
-          ? 400
-          : document.body.offsetWidth > 335
-          ? 320
-          : 260,
+            ? 380
+            : document.body.offsetWidth > 900
+              ? 330
+              : document.body.offsetWidth > 600
+                ? 500
+                : document.body.offsetWidth > 516
+                  ? 480
+                  : document.body.offsetWidth > 440
+                    ? 400
+                    : document.body.offsetWidth > 335
+                      ? 320
+                      : 260,
       height:
         document.body.offsetWidth > 650
-          ? 600
-          : document.body.offsetWidth > 950
           ? 400
-          : document.body.offsetWidth > 900
-          ? 350
-          : document.body.offsetWidth > 600
-          ? 520
-          : document.body.offsetWidth > 516
-          ? 500
-          : document.body.offsetWidth > 440
-          ? 420
-          : document.body.offsetWidth > 335
-          ? 340
-          : 280,
+          : document.body.offsetWidth > 950
+            ? 400
+            : document.body.offsetWidth > 900
+              ? 350
+              : document.body.offsetWidth > 600
+                ? 520
+                : document.body.offsetWidth > 516
+                  ? 500
+                  : document.body.offsetWidth > 440
+                    ? 420
+                    : document.body.offsetWidth > 335
+                      ? 340
+                      : 280,
     },
     accessibility: {
-      description: "Showing World Detail",
+      description: "Showing India Detail",
     },
     credits: {
       enabled: false,
@@ -69,41 +66,41 @@ export default function DiseaseWorldMap(props: IMyProps) {
 
     tooltip: {
       useHTML: true,
-    //   formatter() {
-    //     let point = this,
-    //       vals;
+      formatter() {
+        let point = this,
+          vals;
 
-    //     data1.forEach((d) => {
-    //       if (d[0] == point.point["hc-key"]) {
-    //         vals = d[1];
-    //       }
-    //     });
-    //     return `
-    //     <h4 class="map-hover-title">${point.point["hc-key"]}</h4>
-    //     <hr class="line-break-line">
-    //     <table id="india-map-hover-effect">
-    //       <tr>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box1"></div><span class="td-title">Daksh</span></div><div class="table-td-spans"><span><b>${vals.daksh}</b> Districts</span></div></td>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box2"></div><span class="td-title">Utkarsh</span></div><div class="table-td-spans"><span><b>${vals.utkarsh}</b> Districts</span></div></td>
-    //       </tr>
-    //       <tr>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box3"></div><span class="td-title">Ati-Uttam</span></div><div class="table-td-spans"><span><b>${vals.atiuttam}</b> Districts</span></div></td>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box4"></div><span class="td-title">Uttam</span></div><div class="table-td-spans"><span><b>${vals.uttam}</b> Districts</span></div></td>
-    //       </tr>
-    //       <tr>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box5"></div><span class="td-title">Prachesta-1</span></div><div class="table-td-spans"><span><b>${vals.prachesta1}</b> Districts</span></div></td>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box6"></div><span class="td-title">Prachesta-2</span></div><div class="table-td-spans"><span><b>${vals.prachesta2}</b> Districts</span></div></td>
-    //       </tr>
-    //       <tr>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box7"></div><span class="td-title">Prachesta-3</span></div><div class="table-td-spans"><span><b>${vals.prachesta3}</b> Districts</span></div></td>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box8"></div><span class="td-title">Akanshi-1</span></div><div class="table-td-spans"><span><b>${vals.akanshi1}</b> Districts</span></div></td>
-    //       </tr>
-    //       <tr>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box9"></div><span class="td-title">Akanshi-2</span></div><div class="table-td-spans"><span><b>${vals.akanshi2}</b> Districts</span></div></td>
-    //         <td><div class="td-name-main-div"><div class="color-box" id="color-box10"></div><span class="td-title">Akanshi-3</span></div><div class="table-td-spans"><span><b>${vals.akanshi3}</b> Districts</span></div></td>
-    //       </tr>
-    //     </table>`;
-    //   },
+        data1.forEach((d) => {
+          if (d[0] == point.point["hc-key"]) {
+            vals = d[1];
+          }
+        });
+        return `
+        <h4 class="map-hover-title">${point.point["hc-key"]}</h4>
+        <hr class="line-break-line">
+        <table id="india-map-hover-effect">
+          <tr>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box1"></div><span class="td-title">Daksh</span></div><div class="table-td-spans"><span><b>${vals.daksh}</b> Districts</span></div></td>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box2"></div><span class="td-title">Utkarsh</span></div><div class="table-td-spans"><span><b>${vals.utkarsh}</b> Districts</span></div></td>
+          </tr>
+          <tr>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box3"></div><span class="td-title">Ati-Uttam</span></div><div class="table-td-spans"><span><b>${vals.atiuttam}</b> Districts</span></div></td>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box4"></div><span class="td-title">Uttam</span></div><div class="table-td-spans"><span><b>${vals.uttam}</b> Districts</span></div></td>
+          </tr>
+          <tr>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box5"></div><span class="td-title">Prachesta-1</span></div><div class="table-td-spans"><span><b>${vals.prachesta1}</b> Districts</span></div></td>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box6"></div><span class="td-title">Prachesta-2</span></div><div class="table-td-spans"><span><b>${vals.prachesta2}</b> Districts</span></div></td>
+          </tr>
+          <tr>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box7"></div><span class="td-title">Prachesta-3</span></div><div class="table-td-spans"><span><b>${vals.prachesta3}</b> Districts</span></div></td>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box8"></div><span class="td-title">Akanshi-1</span></div><div class="table-td-spans"><span><b>${vals.akanshi1}</b> Districts</span></div></td>
+          </tr>
+          <tr>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box9"></div><span class="td-title">Akanshi-2</span></div><div class="table-td-spans"><span><b>${vals.akanshi2}</b> Districts</span></div></td>
+            <td><div class="td-name-main-div"><div class="color-box" id="color-box10"></div><span class="td-title">Akanshi-3</span></div><div class="table-td-spans"><span><b>${vals.akanshi3}</b> Districts</span></div></td>
+          </tr>
+        </table>`;
+      },
     },
 
     series: [
@@ -127,7 +124,7 @@ export default function DiseaseWorldMap(props: IMyProps) {
   };
 
   return (
-    <div className="" id="india-map">
+    <div className="india-map" id="india-map">
       <HighchartsReact
         constructorType={"mapChart"}
         highcharts={Highcharts}
