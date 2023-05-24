@@ -1,7 +1,7 @@
 import axios from "axios";
 import DiseaseDashboard from "./DiseaseDashboard";
 import DiseaseRecord from "./DiseaseRecord";
-import DiseaseWorldMap from "./DiseaseWorldMap.js";
+import DiseaseWorldMap from "./DiseaseWorldMap";
 import { Carousel } from "@material-tailwind/react";
 import { useQuery } from "react-query";
 const ChartAndMaps = () => {
@@ -34,10 +34,10 @@ const ChartAndMaps = () => {
       </div>
       <div className="m-16 p-50 rounded-xl">
         <h1 className="text-center text-xl text-indigo-700">
-          Data on number of Cases
+          Data on Cases around the world
         </h1>
         <div className="flex justify-center">
-          <DiseaseWorldMap  />
+          <DiseaseWorldMap data={dataMap} />
         </div>
       </div>
 

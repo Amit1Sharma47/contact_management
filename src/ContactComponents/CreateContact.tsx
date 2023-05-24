@@ -9,16 +9,16 @@ const CreateContact = () => {
   const [data, setData] = useState<any>({});
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setData({ ...data, [e.target.name]: e.target.value });//sets form data in data object
   };
 
   const submitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("first");
+   
 
-    data.firstName && data.lastName && dispatch(addContact(data));
+    data.firstName && data.lastName && dispatch(addContact(data));//check first id values are undefined if not then dispatches addContact action
     setData({ firstName: "", lastName: "", status: data.status });
     navigate("/contact");
-    console.log("first");
+   
   };
   return (
     <div className=" w-full h-96 ">

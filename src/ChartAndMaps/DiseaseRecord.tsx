@@ -1,6 +1,4 @@
-import axios from "axios";
-import React, { PureComponent } from "react";
-import { useQuery } from "react-query";
+
 import HighchartsReact from "highcharts-react-official";
 
 import Highcharts from "highcharts";
@@ -11,10 +9,10 @@ interface IMyProps {
 const DiseaseRecord = (props: IMyProps) => {
   const { data } = props;
   const casesData = data?.data?.data;
-  console.log(casesData);
+  // console.log(casesData);
   const dataArray: any = [];
   Object.keys(casesData?.cases ? casesData?.cases : []).map((key) => {
-    dataArray.push({
+   return dataArray.push({
       name: `${key}`,
       cases: casesData?.cases[key],
       deaths: casesData?.deaths[key],
@@ -22,7 +20,7 @@ const DiseaseRecord = (props: IMyProps) => {
     });
   });
   let slicedArray = dataArray.slice(0, 100);
-  console.log(slicedArray);
+  // console.log(slicedArray);
 
   const options = {
     chart: {

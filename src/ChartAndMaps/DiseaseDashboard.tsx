@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ 
 import axios from "axios";
 import { useQuery } from "react-query";
 import Cards from "../components/Cards";
@@ -20,7 +20,7 @@ const DiseaseDashboard = () => {
         <div className=" flex  h-full flex-wrap justify-center items-center  overflow-hidden">
           {Object.keys(data ? data?.data : []).map(
             (key) =>
-              key !== "updated" && <Cards title={key} quant={data?.data[key]} />
+              key !== "updated" && <Cards key={key} title={key} quant={data?.data[key]} />
           )}
         </div>
       )}

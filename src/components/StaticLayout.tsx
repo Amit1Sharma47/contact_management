@@ -1,11 +1,12 @@
-import React from "react";
+ 
 import { Link, useLocation } from "react-router-dom";
 const StaticLayout = (props: any) => {
   const location = useLocation();
   const path = location.pathname;
-  console.log(path === "/ChartAndMaps");
+
   return (
     <div className=" relative h-screen w-screen overflow-hidden">
+      
       <div className="absolute inset-x-0 top-0 h-24 bg-indigo-500 flex items-center justify-center z-[10] w-screen ">
         <h1 className="text-gray-50 inline-block text-5xl">Contact Page</h1>
       </div>

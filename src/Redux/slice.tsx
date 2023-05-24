@@ -27,14 +27,17 @@ export const contactSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
+    //add action
     addContact: (state, action) => {
       state.contact.push(action.payload);
     },
+    //delete action
     deleteContact: (state, action) => {
       state.contact.splice(action.payload, 1);
     },
+    //update action
     updateContact: (state, action) => {
-      console.log(action.payload);
+     
       state.contact[action?.payload?.id]=action?.payload?.data;
     },
   },

@@ -19,18 +19,18 @@ const CreateContact = () => {
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    console.log(data);
+   
   };
 
   const submitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("first");
+   
     data.length !== 0 &&
       data.firstName !== "" &&
       data.lastName !== "" &&
-      dispatch(updateContact({ data, id }));
+      dispatch(updateContact({ data, id }));// updates the contact
 
     navigate("/contact");
-    console.log("first");
+ 
   };
   return (
     <div className=" w-full h-96 ">
