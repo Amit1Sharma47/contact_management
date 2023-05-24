@@ -9,16 +9,13 @@ const CreateContact = () => {
   const [data, setData] = useState<any>({});
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value });//sets form data in data object
+    setData({ ...data, [e.target.name]: e.target.value }); //sets form data in data object
   };
 
   const submitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-   
-
-    data.firstName && data.lastName && dispatch(addContact(data));//check first id values are undefined if not then dispatches addContact action
+    data.firstName && data.lastName && dispatch(addContact(data)); //check first id values are undefined if not then dispatches addContact action
     setData({ firstName: "", lastName: "", status: data.status });
-    navigate("/contact");
-   
+    navigate("/contact_management/contact");
   };
   return (
     <div className=" w-full h-96 ">
@@ -70,7 +67,9 @@ const CreateContact = () => {
                 value="1"
                 onChange={changeHandler}
               />
-              <label htmlFor="Active">Active</label>
+              <label htmlFor="Active" className="px-5">
+                Active
+              </label>
             </div>
             <div>
               <input
@@ -80,7 +79,9 @@ const CreateContact = () => {
                 value="0"
                 onChange={changeHandler}
               />
-              <label htmlFor="Inactive">Inactive</label>
+              <label htmlFor="Inactive" className="px-5">
+                Inactive
+              </label>
             </div>
           </div>
         </div>

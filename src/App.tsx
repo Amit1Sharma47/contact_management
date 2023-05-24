@@ -11,19 +11,26 @@ function App() {
   const location = useLocation();
   const path = location.pathname;
   useEffect(() => {
-    if (path === "/contact_managemen") navigate("ChartAndMaps");
+    if (path === "/contact_management")
+      navigate("/contact_management/ChartAndMaps");
   }, [navigate, path]);
   return (
     <StaticLayout>
       <Routes>
         {/* contact route */}
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact_management/contact" element={<Contact />} />
         {/* creating contact route */}
-        <Route path="/create" element={<CreateContact />} />
+        <Route path="/contact_management/create" element={<CreateContact />} />
         {/* updating contact route */}
-        <Route path="/contact/update/:id" element={<UpdateContact />} />
+        <Route
+          path="/contact_management/update/:id"
+          element={<UpdateContact />}
+        />
         {/* chart and map section */}
-        <Route path="/ChartAndMaps" element={<ChartAndMaps />} />
+        <Route
+          path="/contact_management/ChartAndMaps"
+          element={<ChartAndMaps />}
+        />
       </Routes>
     </StaticLayout>
   );

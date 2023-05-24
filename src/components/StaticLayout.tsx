@@ -1,4 +1,3 @@
- 
 import { Link, useLocation } from "react-router-dom";
 const StaticLayout = (props: any) => {
   const location = useLocation();
@@ -6,7 +5,6 @@ const StaticLayout = (props: any) => {
 
   return (
     <div className=" relative h-screen w-screen overflow-hidden">
-      
       <div className="absolute inset-x-0 top-0 h-24 bg-indigo-500 flex items-center justify-center z-[10] w-screen ">
         <h1 className="text-gray-50 inline-block text-5xl">Contact Page</h1>
       </div>
@@ -14,11 +12,11 @@ const StaticLayout = (props: any) => {
         <div className="w-1/6 h-5/6  flex items-start justify-center flex-row bg-indigo-200 flex-wrap content-center ">
           <div
             className={`w-full text-gray-50 text-sm hover:bg-sky-700 hover:text-xs active:bg-sky-700 active:text-xs lg:text-xl lg:hover:text-lg ${
-              path === "/contact" ? "bg-indigo-500" : ""
+              path === "/contact_management/contact" ? "bg-indigo-500" : ""
             }`}
           >
             <Link
-              to="/contact"
+              to="/contact_management/contact"
               className="my-1 flex items-center justify-center  w-full h-12 cursor-pointer"
             >
               Contact
@@ -26,12 +24,12 @@ const StaticLayout = (props: any) => {
           </div>
           <div
             className={`w-full  text-gray-50 text-sm hover:bg-sky-700 hover:text-xs active:bg-sky-700 active:text-xs lg:text-xl lg:hover:text-lg ${
-              path === "/ChartAndMaps" ? "bg-indigo-500" : ""
+              path === "/contact_management/ChartAndMaps" ? "bg-indigo-500" : ""
             }`}
           >
             <Link
-              to="/ChartAndMaps"
-              className="my-1 flex items-center justify-center  w-full h-12 cursor-pointer"
+              to="/contact_management/ChartAndMaps"
+              className="my-1 flex items-center text-center justify-center  w-full h-12 cursor-pointer"
             >
               Charts and Maps
             </Link>

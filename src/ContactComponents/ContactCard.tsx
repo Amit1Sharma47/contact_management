@@ -1,8 +1,6 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RootState } from '../Redux/store';
+
 import { deleteContact } from '../Redux/slice';
 interface IMyProps {
     item: any,
@@ -12,7 +10,7 @@ const ContactCard = (props:IMyProps) => {
     const {item,index}=props;
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const contacts = useSelector((state: RootState) => state.contact.contact);//fetches the contact
+ 
     const deleteHandler = (index: number) => {
       dispatch(deleteContact(index));//deleting the contact
    
@@ -20,7 +18,7 @@ const ContactCard = (props:IMyProps) => {
     const updateHandler = (index: number) => {
       
     
-      navigate(`./update/${index}`);//navigate to update page
+      navigate(`/contact_management/update/${index}`);//navigate to update page
     };
   return (
     <div className="w-56 h-60 m-2 text-center overflow-hidden shadow-lg bg-red-100 rounded-md text-red-400 ">

@@ -29,7 +29,7 @@ const CreateContact = () => {
       data.lastName !== "" &&
       dispatch(updateContact({ data, id }));// updates the contact
 
-    navigate("/contact");
+    navigate("/contact_management/contact");
  
   };
   return (
