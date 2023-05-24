@@ -11,7 +11,7 @@ function App() {
   const location = useLocation();
   const path = location.pathname;
   useEffect(() => {
-    if (path === "/") navigate("ChartAndMaps");
+    if (path === "/contact_managemen") navigate("ChartAndMaps");
   }, [navigate, path]);
   return (
     <StaticLayout>
