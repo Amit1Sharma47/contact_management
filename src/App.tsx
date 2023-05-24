@@ -10,10 +10,10 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
-  useEffect(() => {
-    if (path === "/contact_management")
-      navigate("/contact_management/ChartAndMaps");
-  }, [navigate, path]);
+  // useEffect(() => {
+  //   if (path === "/contact_management")
+  //     navigate("/contact_management/ChartAndMaps");
+  // }, [navigate, path]);
   return (
     <StaticLayout>
       <Routes>
